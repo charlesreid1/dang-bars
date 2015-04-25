@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% set mytitle="dang-sunburst" %}
+
+{# ----------- title -------------- #}
+
+{% block title %}{{ mytitle }}{% endblock %}
+
+{# ----------- content ------------- #}
+
+{% block content %}
+
+<style>
+    img.index_img {
+        width: 500px;
+        border-style: solid;
+        border-color: #ddd;
+        border-width: thin;
+    }
+    a.index_btn {
+        margin-top: 10px;
+    }
+    div.row {
+        margin-top: 25px;
+        margin-bottom: 25px;
+    }
+</style>
+
+<div class="container">
+<div class="row">
+
+
+
+<h2><b>Welcome!</b></h2>
+
+<p class="lead">This page contains experiments with D3, Angular, and Pelican.</p>
+
+<p class="lead">Let's start with a simple Angular.js Hello World:</p>
+
+<p><a class="index_btn btn btn-large btn-primary" href="hello/">Hello Angular World</a></p>
+
+
+
+</div>
+<div class="row">
+
+
+
+<p>&nbsp;</p>
+
+<h2><b>Bar Angular.js Directives</b></h2>
+
+<!--
+<p class="lead"><b>Pushing and Popping</b> - Deals with data changing due to pushing/popping of nodes in the underlying tree.
+</p>
+<img src="{{SITEURL}}/images/interactive_pushpop.png" class="index_img img-responsive" />
+<p><a class="index_btn btn btn-large btn-primary" href="dynamic/pushpop.html">Push/Pop: Dynamic Sunburst</a></p>
+<p>&nbsp;</p>
+-->
+
+</div>
+
+
+
+
+{% endblock %}
+
+
