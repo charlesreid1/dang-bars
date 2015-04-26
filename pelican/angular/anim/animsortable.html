@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% set mytitle="Sortable Multi Bar Chart" %}
+
+{# ----------- title -------------- #}
+
+{% block title %}{{ mytitle }}{% endblock %}
+
+{# ----------- content ------------- #}
+
+{% block content %}
+
+<link href="{{ SITEURL }}/anim/animsortable.css" rel="stylesheet" stype="text/css" />
+
+<div ng-app="sortableApp">
+
+    <div ng-controller="SortableController" ng-init="initialize()">
+
+        <div class="row">
+            <div class="col-md-12" id="head">
+                <sortable-bar-head>
+                </sortable-bar-head>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12" id="controls">
+                <sortable-bar-controls>
+                </sortable-bar-controls>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12" id="chart">
+                <sortable-bar-chart>
+                </sortable-bar-chart>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-12" id="text">
+                {% include 'animsortable.md' %}
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<script type="text/javascript" src="{{ SITEURL }}/anim/animsortable_modcontrol.js"></script>
+<script type="text/javascript" src="{{ SITEURL }}/anim/animsortable_directives.js"></script>
+
+{% endblock %}
+
+

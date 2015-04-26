@@ -20,7 +20,8 @@ THEME = 'simple-angular'
 # template locations 
 EXTRA_TEMPLATES_PATHS = ['angular',
                          'angular/first',
-                         'angular/double']
+                         'angular/double',
+                         'angular/anim']
 
 # template files 
 TEMPLATE_PAGES = {}
@@ -58,6 +59,11 @@ TEMPLATE_PAGES['doublebar.css']           = 'double/doublebar.css'
 TEMPLATE_PAGES['doublebar_modcontrol.js'] = 'double/doublebar_modcontrol.js'
 TEMPLATE_PAGES['doublebar_directives.js'] = 'double/doublebar_directives.js'
 
+# animation charts
+TEMPLATE_PAGES['animsortable.html']          = 'anim/animsortable.html'
+TEMPLATE_PAGES['animsortable.css']           = 'anim/animsortable.css'
+TEMPLATE_PAGES['animsortable_modcontrol.js'] = 'anim/animsortable_modcontrol.js'
+TEMPLATE_PAGES['animsortable_directives.js'] = 'anim/animsortable_directives.js'
 
 
 
