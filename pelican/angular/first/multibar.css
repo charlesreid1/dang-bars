@@ -2,6 +2,10 @@
  * css goes here
  */
 
+#legendtext {
+    font-size: smaller;
+}
+
 .bar {
   fill: steelblue;
 }
