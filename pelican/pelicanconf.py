@@ -40,17 +40,17 @@ TEMPLATE_PAGES['simplebar.css']           = 'first/simplebar.css'
 TEMPLATE_PAGES['simplebar_modcontrol.js'] = 'first/simplebar_modcontrol.js'
 TEMPLATE_PAGES['simplebar_directives.js'] = 'first/simplebar_directives.js'
 
-# stacked bar chart
-TEMPLATE_PAGES['stackedbar.html']          = 'first/stackedbar.html'
-TEMPLATE_PAGES['stackedbar.css']           = 'first/stackedbar.css'
-TEMPLATE_PAGES['stackedbar_modcontrol.js'] = 'first/stackedbar_modcontrol.js'
-TEMPLATE_PAGES['stackedbar_directives.js'] = 'first/stackedbar_directives.js'
+# multi bar chart
+TEMPLATE_PAGES['multibar.html']          = 'first/multibar.html'
+TEMPLATE_PAGES['multibar.css']           = 'first/multibar.css'
+TEMPLATE_PAGES['multibar_modcontrol.js'] = 'first/multibar_modcontrol.js'
+TEMPLATE_PAGES['multibar_directives.js'] = 'first/multibar_directives.js'
 
-# stacked bar chart
-TEMPLATE_PAGES['sortablestackedbar.html']          = 'first/sortablestackedbar.html'
-TEMPLATE_PAGES['sortablestackedbar.css']           = 'first/sortablestackedbar.css'
-TEMPLATE_PAGES['sortablestackedbar_modcontrol.js'] = 'first/sortablestackedbar_modcontrol.js'
-TEMPLATE_PAGES['sortablestackedbar_directives.js'] = 'first/sortablestackedbar_directives.js'
+# sortable multi bar chart
+TEMPLATE_PAGES['sortablemultibar.html']          = 'first/sortablemultibar.html'
+TEMPLATE_PAGES['sortablemultibar.css']           = 'first/sortablemultibar.css'
+TEMPLATE_PAGES['sortablemultibar_modcontrol.js'] = 'first/sortablemultibar_modcontrol.js'
+TEMPLATE_PAGES['sortablemultibar_directives.js'] = 'first/sortablemultibar_directives.js'
 
 # double bar chart
 TEMPLATE_PAGES['doublebar.html']          = 'double/doublebar.html'
