@@ -144,6 +144,7 @@ nfirstg = a.directive('doubleBarChart', function($compile) {
             .text("Frequency");
 
         var color = d3.scale.category20b();
+
         //var color = d3.scale.linear()
         //        .domain([0, 0.15])
         //        .range(["red", "blue"]);
@@ -176,8 +177,8 @@ nfirstg = a.directive('doubleBarChart', function($compile) {
         
 
         function type(d) {
-          d.frequency = +d.frequency;
-          return d;
+            d.frequency = +d.frequency;
+            return d;
         }
 
 
