@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <title>dang-bars</title>
+        <title>Simple Bar Chart</title>
         <meta charset="utf-8" />
 
         <!--
@@ -26,112 +26,40 @@
         <hr />
 
 
-<style>
-    img.index_img {
-        width: 500px;
-        border-style: solid;
-        border-color: #ddd;
-        border-width: thin;
-    }
-    a.index_btn {
-        margin-top: 10px;
-    }
-    div.row {
-        margin-top: 25px;
-        margin-bottom: 25px;
-    }
-</style>
+<link href="/dang-bars/first/simplebar.css" rel="stylesheet" stype="text/css" />
 
-<div class="container">
-<div class="row">
+<div ng-app="simpleApp">
 
+    <div ng-controller="SimpleBarController" ng-init="initialize()">
 
+        <div class="row">
+            <div class="col-md-12" id="head">
+                <simple-bar-head></simple-bar-head>
+            </div>
+        </div>
 
-<h2><b>Welcome!</b></h2>
+        <div class="row">
+            <div class="col-md-12" id="chart">
+                <simple-bar-chart></simple-bar-chart>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-12" id="text">
+This simple bar chart shows letter frequncies
+of various letters in the English language.
+The chart is a duplicate of a simple bar chart
+<a href="http://bl.ocks.org/mbostock/3885304">block</a>.
 
-<p class="lead">This page contains experiments with D3, Angular, and Pelican.</p>
-<p class="lead">Let's start with a simple Angular.js Hello World:</p>
-<p><a class="index_btn btn btn-large btn-primary" href="hello/">Hello Angular World</a></p>
+            </div>
+        </div>
 
-
-
-</div>
-<div class="row">
-
-
-
-<p>&nbsp;</p>
-
-<h2><b>Single Bar Chart: Directive</b></h2>
-
-<p class="lead">Start out with a simple example of a bar chart drawn with an Angular.js directive.
-</p>
-<p>
-<img src="/dang-bars/images/simplebar.png" class="index_img img-responsive" />
-</p>
-<p>
-<a class="index_btn btn btn-large btn-primary" 
-    href="first/simplebar.html">Simple Bar Chart</a></p>
-
-
-
-</div>
-<div class="row">
-
-
-<h2><b>Double Bar Chart: Directive</b></h2>
-
-<p class="lead">And now a double-chart that re-uses the same directive
-with an option to sort the data or not.
-</p>
-<p>
-<img src="/dang-bars/images/doublebar.png" class="index_img img-responsive" />
-</p>
-<p>
-<a class="index_btn btn btn-large btn-primary" 
-    href="double/doublebar.html">Double Bar Chart</a>
-</p>
-
-
-</div>
-<div class="row">
-
-
-<h2><b>Multi Bar Chart: Directive</b></h2>
-
-<p class="lead">And now a multi bar chart built by an Angular.js directive.
-</p>
-<p>
-<img src="/dang-bars/images/multibar.png" class="index_img img-responsive" />
-</p>
-<p>
-<a class="index_btn btn btn-large btn-primary" 
-    href="first/multibar.html">Multi Bar Chart</a></p>
-</p>
-
-
-
-</div>
-<div class="row">
-
-
-
-<p class="lead">And now a sortable multi bar chart built by an Angular.js directive.
-<p>
-<img src="/dang-bars/images/sortablemultibar.png" class="index_img img-responsive" />
-</p>
-<p>
-<a class="index_btn btn btn-large btn-primary" 
-    href="first/sortablemultibar.html">Sortable Multi Bar Chart</a></p>
-</p>
-
-
-
+    </div>
 
 </div>
 
-
-
+<script type="text/javascript" src="/dang-bars/first/simplebar_modcontrol.js"></script>
+<script type="text/javascript" src="/dang-bars/first/simplebar_directives.js"></script>
 
     </div>
 
