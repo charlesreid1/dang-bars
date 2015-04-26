@@ -1,3 +1,6 @@
+Two data sets are shown in this series: 
+
+This bar chart shows 
 This simple bar chart shows letter frequncies
 of various letters in the English language.
 The chart is a duplicate of a simple bar chart

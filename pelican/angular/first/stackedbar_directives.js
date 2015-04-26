@@ -74,25 +74,6 @@ ng = a.directive('stackedBarChart', function($compile) {
         // now draw the bar chart with d3 
         // 
 
-        // just like with the streamgraphs, we will use d3.stack()
-        //
-
-        //mapped_data = data.map(function(o,i) { 
-        //    return {
-        //        x: o.letter,
-        //        f1: o.frequency,
-        //        f2: o.firstletterfrequency
-        //    }
-        //});
-
-        //console.log(mapped_data);
-        //stack = d3.layout.stack();
-
-        //console.log(stack);
-        //var s = stack(mapped_data);
-        //console.log(s);
-
-
         var margin = {top: 20, right: 20, bottom: 30, left: 40},
             width = 800 - margin.left - margin.right,
             height = 300 - margin.top - margin.bottom;
