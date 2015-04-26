@@ -72,7 +72,7 @@ ng = a.directive('sortableMultiBarControls', function($compile) {
         });
 
         var letter_b = $("<a />", {
-            "class" : "btn btn-large btn-primary",
+            "class" : "btn btn-large btn-primary active",
             "id" : "sortbyletter",
             "sortbyletter" : ""
         })

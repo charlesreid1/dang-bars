@@ -48,7 +48,10 @@
 
 <h2><b>Single Bar Chart: Directive</b></h2>
 
-<p class="lead">Start out with a simple example of a bar chart drawn with an Angular.js directive.
+<p class="lead">The following example shows a simple bar chart that is implemented as an
+Angular.js directive. This makes it possible to use HTML code like <code>&lt;bar-chart&gt;&lt;/bar-chart&gt;</code>
+and have it translated into Javascript code that assembles the data and 
+builds the D3 bar chart.
 </p>
 <p>
 <img src="{{SITEURL}}/images/simplebar.png" class="index_img img-responsive" />
@@ -67,6 +70,13 @@
 
 <p class="lead">And now a double-chart that re-uses the same directive
 with an option to sort the data or not.
+<p class="lead">This double-chart demonstrates how Angular.js directives can be re-used, 
+and further, how options can be added to the directives to make it possible to 
+re-use directive code to construct several different plots.
+</p>
+<p class="lead">These charts also share a selection, via a variable managed by the controller 
+that instantiates both charts. This allows the charts to share the selected point
+without having to interact with each other or create interfaces for each other.
 </p>
 <p>
 <img src="{{SITEURL}}/images/doublebar.png" class="index_img img-responsive" />
@@ -83,7 +93,9 @@ with an option to sort the data or not.
 
 <h2><b>Multi Bar Chart: Directive</b></h2>
 
-<p class="lead">And now a multi bar chart built by an Angular.js directive.
+<p class="lead">The following bar chart is a multi-series bar chart, demonstrating how to 
+plot multiple x-y relationships on a single bar chart. This multi-series bar chart is drawn
+using an Angular.js directive.
 </p>
 <p>
 <img src="{{SITEURL}}/images/multibar.png" class="index_img img-responsive" />
@@ -100,7 +112,9 @@ with an option to sort the data or not.
 
 
 
-<p class="lead">And now a sortable multi bar chart built by an Angular.js directive.
+<p class="lead">This example adds a button group that allows the user to sort the data. 
+Each time the data is re-sorted, the bar chart is re-drawn. 
+This is possibLe using the variable watch functionality built into Angular.js.
 <p>
 <img src="{{SITEURL}}/images/sortablemultibar.png" class="index_img img-responsive" />
 </p>
@@ -113,8 +127,29 @@ with an option to sort the data or not.
 
 
 </div>
+<div class="row">
 
 
+
+
+<h2><b>Animated Bar Charts</b></h2>
+
+<p class="lead">These examples demonstrate the use of animation for bar chart transitions. 
+The first animation example modifies the sortable bar chart example from above, 
+but animates the sorting of the bars.
+
+<p>
+<img src="{{SITEURL}}/images/animation_sortable.png" class="index_img img-responsive" />
+</p>
+<p>
+<a class="index_btn btn btn-large btn-primary" 
+    href="anim/animsortable.html">Animated Sortable Bar Chart</a></p>
+</p>
+
+
+
+
+</div>
 
 
 {% endblock %}
