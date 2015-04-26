@@ -4,10 +4,10 @@ dir = [];
 
 //////////////////////////////////////
 //
-// Sortable Stacked Bar Directives
+// Sortable Multi Bar Directives
 //
-// <sortable-stacked-bar-head>
-// <sortable-stacked-bar-chart>
+// <sortable-multi-bar-head>
+// <sortable-multi-bar-chart>
 //
 //////////////////////////////////////
 
@@ -16,10 +16,10 @@ dir = [];
 
 
 //////////////////////////////////////
-// Sortable Stacked Bar Header 
+// Sortable Multi Bar Header 
 //
 
-ng = a.directive('sortableStackedBarHead', function($compile) {
+ng = a.directive('sortableMultiBarHead', function($compile) {
 
     function link(scope, element, attr) {
 
@@ -31,7 +31,7 @@ ng = a.directive('sortableStackedBarHead', function($compile) {
             .appendTo(el);
 
         var b = $("<b />")
-            .text("Sortable Stacked Bar Chart")
+            .text("Sortable Multi Bar Chart")
             .appendTo(h1);
 
     }
@@ -46,11 +46,11 @@ dir.push(ng);
 
 
 //////////////////////////////////////
-// Sortable Stacked Bar Controls
+// Sortable Multi Bar Controls
 //
 
 
-ng = a.directive('sortableStackedBarControls', function($compile) {
+ng = a.directive('sortableMultiBarControls', function($compile) {
 
     function link(scope, element, attr) {
 
@@ -186,11 +186,11 @@ dir.push(ng);
 
 
 //////////////////////////////////////
-// Sortable Stacked Bar Chart
+// Sortable Multi Bar Chart
 //
 
 
-ng = a.directive('sortableStackedBarChart', function($compile) {
+ng = a.directive('sortableMultiBarChart', function($compile) {
 
     function link(scope, element, attr) {
 

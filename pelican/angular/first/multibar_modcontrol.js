@@ -1,4 +1,4 @@
-var a = angular.module("stackedApp", [], function($interpolateProvider) {
+var a = angular.module("multiApp", [], function($interpolateProvider) {
             $interpolateProvider.startSymbol('[[');
             $interpolateProvider.endSymbol(']]');
         }
@@ -41,7 +41,7 @@ var myfactory = a.factory('myfactory', function($http, $q) {
     }
 });
 
-function StackedBarController($scope,myfactory) {
+function MultiBarController($scope,myfactory) {
     $scope.initialize = function() {
         var data = myfactory.getData();
         $scope.myData = data;
@@ -49,6 +49,6 @@ function StackedBarController($scope,myfactory) {
 }
 
 // the first few arguments of the list should correspond to the Angular-namespace stuff to feed to HelloController
-var c = a.controller("StackedBarController", ["$scope", "myfactory", StackedBarController]);
+var c = a.controller("MultiBarController", ["$scope", "myfactory", MultiBarController]);
 
 

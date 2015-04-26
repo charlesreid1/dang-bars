@@ -4,10 +4,10 @@ dir = [];
 
 //////////////////////////////////////
 //
-// Stacked Bar Directives
+// Multi Bar Directives
 //
-// <stacked-bar-head>
-// <stacked-bar-chart>
+// <multi-bar-head>
+// <multi-bar-chart>
 //
 //////////////////////////////////////
 
@@ -16,10 +16,10 @@ dir = [];
 
 
 //////////////////////////////////////
-// Stacked Bar Header 
+// Multi Bar Header 
 //
 
-ng = a.directive('stackedBarHead', function($compile) {
+ng = a.directive('multiBarHead', function($compile) {
 
     function link(scope, element, attr) {
 
@@ -31,7 +31,7 @@ ng = a.directive('stackedBarHead', function($compile) {
             .appendTo(el);
 
         var b = $("<b />")
-            .text("Stacked Bar Chart")
+            .text("Multi Bar Chart")
             .appendTo(h1);
 
     }
@@ -47,11 +47,11 @@ dir.push(ng);
 
 
 //////////////////////////////////////
-// Stacked Bar Chart
+// Multi Bar Chart
 //
 
 
-ng = a.directive('stackedBarChart', function($compile) {
+ng = a.directive('multiBarChart', function($compile) {
 
     function link(scope, element, attr) {
 
