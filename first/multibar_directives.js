@@ -66,6 +66,7 @@ ng = a.directive('multiBarChart', function($compile) {
 
     function updateChart(element,data) { 
 
+        console.log('in updateChart()');
 
         var el = element[0];
 
@@ -133,28 +134,38 @@ ng = a.directive('multiBarChart', function($compile) {
 
 
 
+        var color_ix = {};
+        color_ix['firstletterfrequency'] = 6;
+        color_ix['frequency']            = 0;
+
+        var clss;
+
+
+
         // first letter frequency bar chart
 
+        clss = 'firstletterfrequency';
         bar.append("rect")
-            .attr("class", "firstletterfrequency")
+            .attr("class", clss)
             //.attr("x", x.rangeBand() / 2)
             .attr("width", x.rangeBand() / 2)
-            .attr("y", function(d) { return y(d.firstletterfrequency); })
-            .attr("height", function(d) { return height - y(d.firstletterfrequency); })
-            .attr("fill", function(d){ return color(3) })
+            .attr("y", function(d) { return y(d[clss]); })
+            .attr("height", function(d) { return height - y(d[clss]); })
+            .attr("fill", function(d){ return color( color_ix[clss] ) })
             .attr("opacity",0.90);
 
 
         // total occurence frequency bar chart
 
+        clss = 'frequency';
         bar.append("rect")
-            .attr("class", "frequency")
+            .attr("class", clss)
             .attr("x", x.rangeBand() / 2)
             //.attr("x", function(d) { return x(d.letter); })
             .attr("width", x.rangeBand() / 2)
-            .attr("y", function(d) { return y(d.frequency); })
-            .attr("height", function(d) { return height - y(d.frequency); })
-            .attr("fill",function(d){ return color(4) })
+            .attr("y", function(d) { return y(d[clss]); })
+            .attr("height", function(d) { return height - y(d[clss]); })
+            .attr("fill",function(d){ return color( color_ix[clss] ) })
             .attr("opacity",0.90);
 
 
@@ -177,6 +188,55 @@ ng = a.directive('multiBarChart', function($compile) {
             .style("text-anchor", "middle")
             .text("Frequency");
         
+
+
+
+
+        var legend_txt = {};
+        legend_txt['firstletterfrequency'] = "First Letter Frequency";
+        legend_txt['frequency']            = "Total Frequency";
+
+
+        // add legend   
+        var legend = svg.append("g")
+            .attr("class", "legend")
+            .attr("height", 100)
+            .attr("width", 100);
+//            .attr('transform', 'translate(-20,50)')    
+          
+
+        legend_entries = Object.keys(data[0]);
+
+        // remove x-axis key "letter"
+        legend_entries.splice( legend_entries.indexOf('letter') , 1);
+
+        legend.selectAll('text')
+            .data(legend_entries)
+            .enter()
+            .append("rect")
+            .attr("x", width - 165)
+            .attr("y", function(d,i){ return y(0.104+0.015*i) })
+            .attr("width", 10)
+            .attr("height", 10)
+            .style("fill", function(d) { 
+                return color( color_ix[d] );
+            })
+          
+        legend.selectAll('text')
+            .data(legend_entries)
+            .enter()
+            .append("text")
+            .attr("id","legendtext")
+            .attr("x", width - 150)
+            .attr("y", function(d,i){ return y(0.10 + 0.015*i) })
+            .text(function(d) {
+                var txt = legend_txt[d];
+                return txt;
+            });
+        
+
+
+
 
         function type(d) {
             d.frequency = +d.frequency;
