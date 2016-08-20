@@ -90,10 +90,9 @@ with an option to sort the data or not.
 and further, how options can be added to the directives to make it possible to 
 re-use directive code to construct several different plots.
 </p>
-<p class="lead">These charts also share a selection, via a shared variable. 
-This allows the charts to share a selection without interacting with each other.
-With this in place, we don't need a gazillion interfaces for every chart that needs to share something
-with another chart. 
+<p class="lead">These charts also share a selection, via a variable managed by the controller 
+that instantiates both charts. This allows the charts to share the selected point
+without having to interact with each other or create interfaces for each other.
 </p>
 <p>
 <img src="/dang-bars/images/doublebar.png" class="index_img img-responsive" />
@@ -131,7 +130,7 @@ using an Angular.js directive.
 
 <p class="lead">This example adds a button group that allows the user to sort the data. 
 Each time the data is re-sorted, the bar chart is re-drawn. 
-This is possible using the variable watch functionality built into Angular.js.
+This is possibLe using the variable watch functionality built into Angular.js.
 <p>
 <img src="/dang-bars/images/sortablemultibar.png" class="index_img img-responsive" />
 </p>
@@ -149,29 +148,19 @@ This is possible using the variable watch functionality built into Angular.js.
 
 
 
-<h2><b>Animated Sorting</b></h2>
+<h2><b>Animated Bar Charts</b></h2>
 
-<p class="lead">This example illustrates the use of animation for 
-visualizing the sorting of data bound to the bar chart. 
-The previous sorting example is modified so that the 
-transition between different sorts is animated. 
+<p class="lead">These examples demonstrate the use of animation for bar chart transitions. 
+The first animation example modifies the sortable bar chart example from above, 
+but animates the sorting of the bars.
 
 <p>
-<img src="/dang-bars/images/animsorted.png" class="index_img img-responsive" />
+<img src="/dang-bars/images/animation_sortable.png" class="index_img img-responsive" />
 </p>
 <p>
 <a class="index_btn btn btn-large btn-primary" 
-    href="anim/animsortable.html">Animated Sorting</a></p>
+    href="anim/animsortable.html">Animated Sortable Bar Chart</a></p>
 </p>
-
-
-
-
-</div>
-<div class="row">
-
-
-
 
 
 

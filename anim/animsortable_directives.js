@@ -123,9 +123,19 @@ dir.push(ng);
 ng = a.directive('sortbyletter', function($compile) {
     return function(pscope, element, attrs){
         element.bind("click", function(){
+
             $("a").removeClass('active');
             $("a#sortbyletter").addClass('active');
+
+            pscope.myData = pscope.myData.sort(function(a,b) { 
+                if(a.letter < b.letter) { return -1 }
+                if(a.letter > b.letter) { return 1 }
+                return 0
+            });
+
+            pscope.$apply();
             pscope.sortChart('letter');
+
         });
     };
 });
@@ -134,9 +144,19 @@ dir.push(ng);
 ng = a.directive('sortbyfirstfreq', function($compile) {
     return function(pscope, element, attrs){
         element.bind("click", function(){
+
             $("a").removeClass('active');
             $("a#sortbyfirstfreq").addClass('active');
+
+            pscope.myData = pscope.myData.sort(function(a,b) { 
+                if(a.firstletterfrequency < b.firstletterfrequency) { return 1 }
+                if(a.firstletterfrequency > b.firstletterfrequency) { return -1 }
+                return 0
+            });
+
+            pscope.$apply();
             pscope.sortChart('firstletterfrequency');
+
         });
     };
 });
@@ -145,9 +165,19 @@ dir.push(ng);
 ng = a.directive('sortbyfreq', function($compile) {
     return function(pscope, element, attrs){
         element.bind("click", function(){
+
             $("a").removeClass('active');
             $("a#sortbyfreq").addClass('active');
+
+            pscope.myData = pscope.myData.sort(function(a,b) { 
+                if(a.frequency < b.frequency) { return 1 }
+                if(a.frequency > b.frequency) { return -1 }
+                return 0
+            });
+
+            pscope.$apply();
             pscope.sortChart('frequency');
+
         });
     };
 });
@@ -236,9 +266,10 @@ ng = a.directive('sortableBarChart', function($compile) {
             
             //var color = d3.scale.category20b();
             //var color = d3.scale.category20c();
-            range20 = Array.apply(null, Array(10)).map(function (_, i) {return i;});
-            var color = d3.scale.category20()
-                        .domain(range20);
+            range10 = Array.apply(null, Array(10)).map(function (_, i) {return i;});
+            var color = d3.scale.category10()
+                        .domain(range10);
+
 
 
             // width of each x quantity = x.rangeBand()
@@ -246,8 +277,6 @@ ng = a.directive('sortableBarChart', function($compile) {
             // x location of bands = 0 (default) for firstletterfrequency)
             // x location of bands = x.rangeBand/2 for frequency (starts halfway thru)
 
-            var color_ix1 = 0;
-            var color_ix2 = 4;
 
             // first letter frequency bar chart
             // 
@@ -256,7 +285,7 @@ ng = a.directive('sortableBarChart', function($compile) {
                 .attr("width", x.rangeBand() / 2)
                 .attr("y", function(d) { return y(d.firstletterfrequency); })
                 .attr("height", function(d) { return height - y(d.firstletterfrequency); })
-                .attr("fill", function(d){ return color(color_ix1) })
+                .attr("fill", function(d){ return color(0) })
                 .attr("opacity",0.90)
                 .attr("transform",function(d,i) { 
                     return "translate(" + x(d.letter) + ",0)";
@@ -271,7 +300,7 @@ ng = a.directive('sortableBarChart', function($compile) {
                 .attr("width", x.rangeBand() / 2)
                 .attr("y", function(d) { return y(d.frequency); })
                 .attr("height", function(d) { return height - y(d.frequency); })
-                .attr("fill",function(d){ return color(color_ix2) })
+                .attr("fill",function(d){ return color(3) })
                 .attr("opacity",0.90)
                 .attr("transform",function(d,i) { 
                     return "translate(" + x(d.letter) + ",0)";
@@ -307,8 +336,6 @@ ng = a.directive('sortableBarChart', function($compile) {
 
 
 
-            // /////////////////////////////////////
-            //
             // define sortchart here, because this scope has 
             // lots of convenient variables available.
             //
@@ -325,65 +352,58 @@ ng = a.directive('sortableBarChart', function($compile) {
 
             pscope.sortChart = function(sortkey) {
 
+                console.log('sorting chart...');
+
                 sortf = function(a,b) { 
-                    if(sortkey=='letter') {
-                        // alphabetical requires reverse sort order
-                        if( a[sortkey] < b[sortkey] ) { return -1 }
-                        if( a[sortkey] > b[sortkey] ) { return 1 }
-                    } else {
-                        if( a[sortkey] < b[sortkey] ) { return 1 }
-                        if( a[sortkey] > b[sortkey] ) { return -1 }
-                    }
+                    sortkey = 'frequency';
+                    if( a[sortkey] < b[sortkey] ) { return 1 }
+                    if( a[sortkey] > b[sortkey] ) { return -1 }
                     return 0
                 };
+
+
+
+
+
+                //// print the letters and their freq values 
+                //// in normal/original/alphabetic order 
+                //svg.selectAll("rect").each(function(d){console.log(d.letter + " : " + d.firstletterfrequency)});
+
+
+                //// print the ltters and their freq values
+                //// in order sorted by freq values
+                //svg.selectAll("rect")
+                //    .sort(sortf)
+                //    .each(function(d){console.log(d.letter + " : " + d.frequency)});
+
+
 
 
                 // first, we need to sort our data.
                 // then, we need to update the x scale domain (range stays same)
                 // then, we need to update our xAxis.scale with the new x scale
 
-                data.sort( sortf );
 
-                x.domain(data.map(function(d) { return d.letter })); 
+                svg.selectAll("rect").sort(sortf);
+
+                x.domain = svg.selectAll("rect")
+                              .each(function(d){ return d.letter } );
 
                 xAxis.scale(x);
 
-                svg.selectAll("g#xaxis").remove();
-                svg.append("g")
-                    .attr("class", "x axis")
-                    .attr("id","xaxis")
-                    .attr("transform", "translate(0," + height + ")")
-                    .call(xAxis);
 
-
-
-                // Now we can select all the rectangles 
+                // Now we can draw the new rectangles,
                 // and animate their transition.
-
-                svg.selectAll("rect.firstletterfrequency")
+                svg.selectAll("rect")
                     .transition()
                     .duration(1000)
-                    //.delay(function(d,i) { return i * 10 })
-                    .attr("x", function(d,i) {
-                        return 0;
-                    })
-                    .attr("transform",function(d,i) { 
-                        return "translate(" + x(d.letter) + ",0)";
-                    });
-
-                svg.selectAll("rect.frequency")
-                    .transition()
-                    .duration(1000)
-                    .delay(function(d,i) { return 500 + i*10 })
-                    .attr("x", function(d,i) {
-                        return x.rangeBand()/2;
-                    })
-                    .attr("transform",function(d,i) { 
-                        return "translate(" + x(d.letter) + ",0)";
-                    });
+                    //.attr("x", function(d,i) {
+                    //    // this uses the new x domain
+                    //    return x(d.letter);
+                    //});
 
 
-                // axis labels?
+                // worry about text label updates later.
 
 
 
